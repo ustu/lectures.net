@@ -1,0 +1,9 @@
+build
+TODO
+*.swp
+*.swo
+*.bak
+*.tmp
+*.sqlite
+.vagrant
+*.pyc
