@@ -9,72 +9,77 @@ httplib
     * https://docs.python.org/2/library/httplib.html
     * https://docs.python.org/3/library/http.client.html
 
-httplib представляет собой простую обертку вокруг модуля socket,
-которая обеспечивает наибольший контроль при обращении к web-сайту.
+:mod:`http.client` представляет собой простую обертку вокруг модуля
+:mod:`socket`, которая обеспечивает наибольший контроль при обращении к
+web-сайту.
 
-Отправка GET запроса.
+Отправка ``GET`` запроса.
 
 .. code-block:: python
 
-    import httplib
-    conn = httplib.HTTPConnection("lectureswww.readthedocs.org")
-    conn.request("GET", "/ru/latest/")
-    r1 = conn.getresponse()
-    print(r1.status)
+   import http.client
+   conn = http.client.HTTPConnection("lectureswww.readthedocs.org")
+   conn.request("GET", "/ru/latest/")
+   r1 = conn.getresponse()
+   print(r1.status)
 
-    data1 = r1.read()
-    conn.request("GET", "/parrot.spam")
-    r2 = conn.getresponse()
-    print(r2.status)
+   data1 = r1.read()
+   conn.request("GET", "/parrot.spam")
+   r2 = conn.getresponse()
+   print(r2.status)
 
-    data2 = r2.read()
-    conn.close()
+   data2 = r2.read()
+   conn.close()
 
 .. code-block:: text
 
     200
     404
 
-В переменных data1, data2 хранится тело ответа.
+В переменных ``data1``, ``data2`` хранится тело ответа.
 
-POST запрос
+``POST`` запрос, с использованием модуля :mod:`urllib.parse` для преобразования
+Python словаря в строку параметров для HTTP запроса:
 
 .. code-block:: python
 
-    import httplib
-    import urllib
+   import http.client
+   import urllib.parse
 
-    params = urllib.urlencode({'@number': 12524, '@type': 'issue', '@action': 'show'})
-    headers = {"Content-type": "application/x-www-form-urlencoded",
-               "Accept": "text/plain"}
-    conn = httplib.HTTPConnection("bugs.python.org")
-    conn.request("POST", "", params, headers)
-    response = conn.getresponse()
-    print(response.status, response.reason)
+   params = urllib.parse.urlencode(
+       {'@number': 12524, '@type': 'issue', '@action': 'show'}
+   )
+   headers = {"Content-type": "application/x-www-form-urlencoded",
+              "Accept": "text/plain"}
+   conn = http.client.HTTPConnection("bugs.python.org")
+   conn.request("POST", "", params, headers)
+   response = conn.getresponse()
+   print(response.status, response.reason)
 
-    data = response.read()
-    print(data)
+   data = response.read()
+   print(data)
 
-    conn.close()
+   conn.close()
 
-.. no-code-block:: bash
+.. code-block:: text
 
     302 Found
-    Redirecting to <a href="http://bugs.python.org/issue12524">http://bugs.python.org/issue12524</a>
+    b'Redirecting to <a href="http://bugs.python.org/issue12524">http://bugs.python.org/issue12524</a>'
 
 urllib
 ------
 
 .. seealso::
 
-    * `Лекции Р. Сузи <http://www.wiki.intuit.ru/wiki/Курсы/Язык_программирования_Python/Лекция_9:_Сетевые_приложения_на_Python>`_
-    * https://docs.python.org/2/library/urllib.html
+    * `Лекции Р. Сузи
+      <http://www.wiki.intuit.ru/wiki/Курсы/Язык_программирования_Python/Лекция_9:_Сетевые_приложения_на_Python>`_
+    * https://docs.python.org/3/library/urllib.request.html
 
 .. code-block:: python
 
-   import urllib
-   doc = urllib.urlopen("http://lectureswww.readthedocs.org").read()
-   print(doc[:350])
+    import urllib.request
+    doc = urllib.request.urlopen("http://lectureswww.readthedocs.org")
+    print(doc.read()[:350])
 
 .. code-block:: html
 
@@ -87,14 +92,22 @@ urllib
 
       <title>Основы Веб-программирования &mdash; Документ
 
-Функция urllib.urlopen() создает файлоподобный объект, который читает методом read(). Другие методы этого объекта: readline(), readlines(), fileno(), close() работают как и у обычного файла, а также есть метод info(), который возвращает соответствующий полученному с сервера Message-объект.
+Функция :func:`urllib.request.urlopen` создает файлоподобный объект, который
+читается методом :meth:`~http.client.HTTPResponse.read`. Другие методы этого
+объекта: :meth:`~http.client.HTTPResponse.readline`,
+:meth:`~http.client.HTTPResponse.readlines`,
+:meth:`~http.client.HTTPResponse.fileno`,
+:meth:`~http.client.HTTPResponse.close`,
+работают как и у обычного файла, а также есть метод
+:meth:`~http.client.HTTPResponse.info`, который возвращает
+соответствующий полученному с сервера Message-объект.
 
 Этот объект можно использовать для получения дополнительной информации:
 
 .. code-block:: python
 
-    import urllib
-    doc = urllib.urlopen("http://lectureswww.readthedocs.org")
+    import urllib.request
+    doc = urllib.request.urlopen("http://lectureswww.readthedocs.org")
     print(doc.info())
 
 .. no-code-block:: python
@@ -112,9 +125,12 @@ urllib
     Last-Modified: Tue, 27 Jan 2015 08:26:40 GMT
     Content-Length: 25250
 
-С помощью функции urllib.urlopen() можно делать и более сложные вещи, например, передавать web-серверу данные формы.
-Как известно, данные заполненной web-формы могут быть переданы на web-сервер с использованием метода GET или метода POST.
-Метод GET связан с кодированием всех передаваемых параметров после знака "?" в URL, а при методе POST данные передаются в теле HTTP-запроса.
+С помощью функции :func:`urllib.request.urlopen` можно делать и более сложные
+вещи, например, передавать web-серверу данные формы. Как известно, данные
+заполненной web-формы могут быть переданы на web-сервер с использованием метода
+GET или метода POST. Метод GET связан с кодированием всех передаваемых
+параметров после знака "?" в URL, а при методе POST данные передаются в теле
+HTTP-запроса.
 
 Оба варианта передачи представлены ниже:
 
@@ -142,7 +158,7 @@ urllib
     enc_data = urllib.urlencode(data)
     print(enc_data)
 
-::
+.. code-block:: text
 
     n=1&n=3&n=4&button=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82
 
