@@ -99,6 +99,9 @@ OTHER_LINKS = {
     'gevent': 'http://www.gevent.org/',
     'asyncio': 'https://docs.python.org/3/library/asyncio.html',
 
+    # Nix
+    'nix': 'http://nixos.org/nix/',
+
     # Other
     'zenoss': 'www.zenoss.com/',
     'erp5': 'https://ru.wikipedia.org/wiki/ERP5',
@@ -111,12 +114,12 @@ ASYNC_LINKS = {
 }
 
 GLOBAL_LINKS = dict(
-    PYLONS_LINKS.items() +
-    OTHER_LINKS.items() +
-    DATABASE_LINKS.items() +
-    FRAMEWORK_LINKS.items() +
-    PEOPLE_LINKS.items() +
-    BOOKS_LINKS.items() +
-    SACRUD_LINKS.items() +
-    ASYNC_LINKS.items()
+    list(PYLONS_LINKS.items()) +
+    list(OTHER_LINKS.items()) +
+    list(DATABASE_LINKS.items()) +
+    list(FRAMEWORK_LINKS.items()) +
+    list(PEOPLE_LINKS.items()) +
+    list(BOOKS_LINKS.items()) +
+    list(SACRUD_LINKS.items()) +
+    list(ASYNC_LINKS.items())
 )
