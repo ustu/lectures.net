@@ -3,12 +3,40 @@
 
 .. seealso::
 
-   * https://en.wikipedia.org/wiki/Web_scraping 
+   https://en.wikipedia.org/wiki/Web_scraping
+
+   DOM:
+
+     * https://ru.wikipedia.org/wiki/Document_Object_Model
+
+   CSS Selector:
+
+     + https://www.w3.org/TR/selectors/
+     + http://www.w3schools.com/cssref/css_selectors.asp
+     + `<https://ru.wikibooks.org/wiki/CSS/Селекторы>`_
+
+   XPath:
+
+     + https://ru.wikipedia.org/wiki/XPath
+     + https://addons.mozilla.org/ru/firefox/addon/firepath/
+
+Для разбора Веб-страниц HTML/XML текст представляют в виде дерева
+объектов (DOM), к элементам которого можно обращаться при помощи разных
+механизмов:
+
+    * CSS
+    * XPath
+    * JQuery
+    * `FireBug <https://addons.mozilla.org/ru/firefox/addon/firebug/>`_
 
 .. toctree::
     :maxdepth: 3
 
+    firebug.rst
+    selenium.rst
     lxml.rst
+    asyncio.rst
+    qt.rst
 
 .. todo::
 

@@ -8,8 +8,9 @@ lxml.html
 Разбор HTTP ответа
 ------------------
 
-Довольно легко распарсить html код полученный при помощи lxml. Как только мы
-преобразовали данные в дерево, можно использовать xPath для извлечения данных.
+Довольно легко распарсить HTML код полученный при помощи `lxml <lxml.de>`_.
+Как только мы преобразовали данные в дерево, можно использовать xPath для
+извлечения данных.
 
 .. code-block:: python
 
@@ -40,7 +41,7 @@ lxml.html
     import requests
     from lxml import html
     import sys
-    import urlparse
+    import urllib.parse
 
     response = requests.get('http://imgur.com/')
     parsed_body = html.fromstring(response.text)
@@ -51,7 +52,7 @@ lxml.html
         sys.exit("Found No Images")
 
     # Конвертирование всех относительных ссылок в абсолютные
-    images = [urlparse.urljoin(response.url, url) for url in images]
+    images = [urllib.parse.urljoin(response.url, url) for url in images]
     print('Found %s images' % len(images))
 
     # Скачиваем только первые 10
