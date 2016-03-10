@@ -99,6 +99,9 @@ OTHER_LINKS = {
     'gevent': 'http://www.gevent.org/',
     'asyncio': 'https://docs.python.org/3/library/asyncio.html',
 
+    # Nix
+    'nix': 'http://nixos.org/nix/',
+
     # Other
     'zenoss': 'www.zenoss.com/',
     'erp5': 'https://ru.wikipedia.org/wiki/ERP5',
