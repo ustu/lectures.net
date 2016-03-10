@@ -216,6 +216,7 @@ intersphinx_mapping = {
     'http://docs.sqlalchemy.org/en/latest/': None,
     'http://initd.org/psycopg/docs/': None,
     'http://lectureskpd.readthedocs.org/': None,
+    'http://docs.python-requests.org/en/master/': None
 }
 
 
