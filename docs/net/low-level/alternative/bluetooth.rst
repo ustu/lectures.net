@@ -6,7 +6,7 @@ Bluetooth
     * http://homepages.ius.edu/RWISMAN/C490/html/PythonandBluetooth.htm
     * http://kevindoran1.blogspot.ru/2013/04/bluetooth-programming-with-python-3.html
 
-.. no-code-block:: bash
+.. code-block:: bash
 
     $ hciconfig
     hci0:   Type: BR/EDR  Bus: USB

@@ -91,7 +91,9 @@ UDP сервер
     * http://stackoverflow.com/questions/24415294/python-arp-sniffing-raw-socket-no-reply-packets
     * http://www.binarytides.com/python-packet-sniffer-code-linux
 
-**Сырой сокет** - разновидность сокетов Беркли, позволяющий собирать TCP/IP-пакеты, контролируя каждый бит заголовка и отправляя в сеть нестандартные пакеты.
+**Сырой сокет** - разновидность сокетов Беркли, позволяющий собирать
+TCP/IP-пакеты, контролируя каждый бит заголовка и отправляя в сеть
+нестандартные пакеты.
 
 .. literalinclude:: /../sourcecode/4.net/socket/inet/1.raw_socket_sniff.py
    :language: python

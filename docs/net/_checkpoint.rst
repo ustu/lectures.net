@@ -21,8 +21,10 @@
    │   └── aboutme.html
    └── index.html
 
-* Написать socket сервер который отдает статикой файлы по HTTP при обращении по IP адресу.
-* Файл ``aboutme.html`` должен быть доступен по ссылке http://localhost:8000/about/aboutme.html
+* Написать socket сервер который отдает статикой файлы по HTTP при
+  обращении по IP адресу.
+* Файл ``aboutme.html`` должен быть доступен по ссылке
+  http://localhost:8000/about/aboutme.html
 * Файл ``index.html`` должен быть доступен по ссылке
   http://localhost:8000/index.html или http://localhost:8000/
 
@@ -59,6 +61,10 @@
 
    Оформить в виде заметок на сервисе `Gist` от `GitHub`.
 
+.. seealso::
+
+    http://www.tcpdump.org/
+
 Отправить следующие параметры POST запросом на сервис http://httpbin.org/post
 
 .. code-block:: json
@@ -69,5 +75,5 @@
        "Surname": "MySurname"
    }
 
-При помощи утилиты ``tcpdump`` перехватить трафик с запросом и выложить
+При помощи утилиты :man:`tcpdump` перехватить трафик с запросом и выложить
 результат в виде заметок ``Gist`` от ``GitHub``.

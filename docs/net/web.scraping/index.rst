@@ -19,6 +19,7 @@
 
      + https://ru.wikipedia.org/wiki/XPath
      + https://addons.mozilla.org/ru/firefox/addon/firepath/
+     + http://ejohn.org/blog/xpath-css-selectors/
 
 Для разбора Веб-страниц HTML/XML текст представляют в виде дерева
 объектов (DOM), к элементам которого можно обращаться при помощи разных
