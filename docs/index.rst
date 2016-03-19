@@ -25,3 +25,11 @@
     net/web.scraping/index.rst
     net/low-level/index.rst
     net/_checkpoint.rst
+
+Справочник
+----------
+
+.. toctree::
+    :maxdepth: 1
+
+    common/busy_address.rst
