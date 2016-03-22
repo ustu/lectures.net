@@ -6,6 +6,7 @@
     * `<https://ru.wikipedia.org/wiki/Межпроцессное_взаимодействие>`_
     * http://heap.altlinux.org/tmp/unix_base/ch01s03.html
     * https://docs.python.org/3/library/ipc.html
+    * `Презентация с лекций <http://www.slideshare.net/lectureswwwlecturesw/ss-59897850>`_
 
 Межпроцессное взаимодействие (англ. Inter-Process Communication, IPC) —
 набор способов обмена данными между множеством потоков в одном или более
