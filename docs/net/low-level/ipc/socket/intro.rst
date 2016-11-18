@@ -5,7 +5,7 @@
 
     * `<https://ru.wikipedia.org/wiki/Сокет_(программный_интерфейс)>`_
     * `<https://ru.wikipedia.org/wiki/Сокеты_Беркли>`_
-    * http://rsdn.ru/article/unix/sockets.xmlhttp://rsdn.ru/article/unix/sockets.xml
+    * http://rsdn.ru/article/unix/sockets.xml
     * http://pymotw.com/2/socket/index.html
     * http://masandilov.ru/network/guide_to_network_programming
 
