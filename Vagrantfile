@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 # vi: set nu :
 
-PROJECT_NAME = "lectures"
+PROJECT_NAME = "lecturesnet"
 LECTURES = ENV["LECTURES"]
 
 Vagrant.configure(2) do |config|
