@@ -15,4 +15,4 @@
   s.src = "//an.yandex.ru/system/context.js";
   s.async = true;
   t.parentNode.insertBefore(s, t);
-})(window, document, "yandexContextAsyncCallbacks");
+})(window, window.document, "yandexContextAsyncCallbacks");
