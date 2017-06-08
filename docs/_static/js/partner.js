@@ -1,14 +1,10 @@
 // Yandex.RTB R-A-231467-1
-var div = document.getElementById('yandex-partner');
-div.innerHTML = '<div id="yandex_rtb_R-A-231467-1"></div>';
-
 (function(w, d, n, s, t) {
-  console.log(w, d)
   w[n] = w[n] || [];
   w[n].push(function() {
     Ya.Context.AdvManager.render({
       blockId: "R-A-231467-1",
-      renderTo: "yandex_rtb_R-A-231467-1",
+      renderTo: "yandex-partner",
       horizontalAlign: false,
       async: true
     });
