@@ -3,6 +3,7 @@ var div = document.getElementById('yandex-partner');
 div.innerHTML = '<div id="yandex_rtb_R-A-231467-1"></div>';
 
 (function(w, d, n, s, t) {
+  console.log(w, d)
   w[n] = w[n] || [];
   w[n].push(function() {
     Ya.Context.AdvManager.render({
@@ -15,7 +16,7 @@ div.innerHTML = '<div id="yandex_rtb_R-A-231467-1"></div>';
   t = d.getElementsByTagName("script")[0];
   s = d.createElement("script");
   s.type = "text/javascript";
-  s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//an.yandex.ru/system/context.js";
+  s.src = "//an.yandex.ru/system/context.js";
   s.async = true;
   t.parentNode.insertBefore(s, t);
-})(this, this.document, "yandexContextAsyncCallbacks");
+})(window, document, "yandexContextAsyncCallbacks");
