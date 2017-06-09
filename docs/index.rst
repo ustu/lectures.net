@@ -16,6 +16,9 @@
 
 .. include:: /../_lectures/docs/lect_links.rst
 
+Содержание
+----------
+
 .. seealso::
 
    * https://docs.python.org/3/library/internet.html
