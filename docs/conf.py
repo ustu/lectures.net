@@ -14,6 +14,7 @@ sys.path.insert(0, os.path.abspath('../_lectures/docs/'))
 from config_sphinx import *  # noqa
 
 project = u'Сетевое программирование'
+html_title = project
 epub_title = project
 latex_documents = [
     ('index', 'lectures.tex',
