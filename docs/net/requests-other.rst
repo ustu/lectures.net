@@ -290,15 +290,15 @@ POST запрос
 
     #include <stdio.h>
     #include <curl/curl.h>
- 
+
     int main(void)
     {
       CURL *curl;
       CURLcode res;
- 
+
       /* In windows, this will init the winsock stuff */ 
       curl_global_init(CURL_GLOBAL_ALL);
- 
+
       /* get a curl handle */ 
       curl = curl_easy_init();
       if(curl) {
