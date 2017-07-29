@@ -7,22 +7,22 @@ LECTURES = ENV["LECTURES"]
 
 Vagrant.configure(2) do |config|
   config.vm.synced_folder ".",
-      "/home/vagrant/lecturesnet/"
+      "/home/vagrant/lectures/"
 
   # Lectures docs
-  config.vm.define 'lecturesnet', primary: true do |lecturesnet|
+  config.vm.define 'lectures', primary: true do |lectures|
 
-    lecturesnet.ssh.port = 22
-    lecturesnet.ssh.username = 'vagrant'
-    lecturesnet.ssh.password = '123'
+    lectures.ssh.port = 22
+    lectures.ssh.username = 'vagrant'
+    lectures.ssh.password = '123'
 
-    lecturesnet.vm.provision :shell, privileged: false,
-      :path => "vagrant/docker/lecturesnet/build-docs.sh",
+    lectures.vm.provision :shell, privileged: false,
+      :path => "vagrant/docker/lectures/build-docs.sh",
       :env => {LECTURES: LECTURES}
 
-    lecturesnet.vm.provider 'docker' do |docker|
+    lectures.vm.provider 'docker' do |docker|
       docker.name = PROJECT_NAME
-      docker.build_dir = './vagrant/docker/lecturesnet/'
+      docker.build_dir = './vagrant/docker/lectures/'
       docker.build_args = ['--tag=ustu/lecturesnet']
       docker.remains_running = false
 

@@ -3,13 +3,21 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. sectionauthor:: Svintsov Dmitry <root@uralbash.ru>
+
+.. meta::
+   :description: Лекции по курсу "Сетевое программирование"
+   :keywords: курс, сети, программирование, TCP, UDP, socket, HTTP, scraping
+
 Сетевое программирование
 ========================
 
 .. image:: /_static/logo.jpg
 
-Дополнение к курсу `Основы Веб-программирования
-<http://lectureswww.readthedocs.org/>`_.
+.. include:: /../_lectures/docs/lect_links.rst
+
+Содержание
+----------
 
 .. seealso::
 
