@@ -9,7 +9,7 @@ C curl
     https://curl.haxx.se/docs/manual.html
 
 Установка
-~~~~~~~~~
+^^^^^^^^^
 
 Для :l:`nix`:
 
@@ -37,7 +37,10 @@ C curl
    $ gcc foo.c -lcurl -o foo
 
 Get запрос
-~~~~~~~~~~
+^^^^^^^^^^
+
+example.com
+"""""""""""
 
 .. seealso::
 
@@ -52,33 +55,33 @@ Get запрос
 
     #include <stdio.h>
     #include <curl/curl.h>
- 
+
     int main(void)
     {
       CURL *curl;
       CURLcode res;
- 
+
       curl = curl_easy_init();
       if(curl) {
         curl_easy_setopt(curl, CURLOPT_URL, "http://example.com");
-        /* example.com is redirected, so we tell libcurl to follow redirection */ 
+        /* example.com is redirected, so we tell libcurl to follow redirection */
         curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
- 
-        /* Perform the request, res will get the return code */ 
+
+        /* Perform the request, res will get the return code */
         res = curl_easy_perform(curl);
-        /* Check for errors */ 
+        /* Check for errors */
         if(res != CURLE_OK)
           fprintf(stderr, "curl_easy_perform() failed: %s\n",
                   curl_easy_strerror(res));
- 
-        /* always cleanup */ 
+
+        /* always cleanup */
         curl_easy_cleanup(curl);
       }
       return 0;
     }
 
 .. code-block:: html
-
+    :caption: Результат выполнения программы
 
     <!doctype html>
     <html>
@@ -94,7 +97,7 @@ Get запрос
             margin: 0;
             padding: 0;
             font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        
+
         }
         div {
             width: 600px;
@@ -118,7 +121,7 @@ Get запрос
                 padding: 1em;
             }
         }
-        </style>    
+        </style>
     </head>
 
     <body>
@@ -130,6 +133,9 @@ Get запрос
     </div>
     </body>
     </html>
+
+wttr.in
+"""""""
 
 .. note::
 
@@ -153,7 +159,7 @@ Get запрос
     #include <stdio.h>
     #include <curl/curl.h>
 
- 
+
     int main(void)
     {
       CURL *curl;
@@ -163,18 +169,18 @@ Get запрос
       if(curl) {
         curl_easy_setopt(curl, CURLOPT_URL, "http://wttr.in/Pyshma");
         curl_easy_setopt(curl, CURLOPT_USERAGENT, "curl/7.47.1");
-        /* example.com is redirected, so we tell libcurl to follow redirection */ 
+        /* example.com is redirected, so we tell libcurl to follow redirection */
         curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
- 
-        /* Perform the request, res will get the return code */ 
+
+        /* Perform the request, res will get the return code */
         res = curl_easy_perform(curl);
 
-        /* Check for errors */ 
+        /* Check for errors */
         if(res != CURLE_OK)
           fprintf(stderr, "curl_easy_perform() failed: %s\n",
                   curl_easy_strerror(res));
- 
-        /* always cleanup */ 
+
+        /* always cleanup */
         curl_easy_cleanup(curl);
 
       }
@@ -189,11 +195,11 @@ Get запрос
    Weather for City: Pyshma, Russia
 
                   Freezing fog
-     _ - _ - _ -  -4 °C          
-      _ - _ - _   ← 2 km/h       
-     _ - _ - _ -  0 km           
-                  0.0 mm         
-                                                          ┌─────────────┐                                                       
+     _ - _ - _ -  -4 °C
+      _ - _ - _   ← 2 km/h
+     _ - _ - _ -  0 km
+                  0.0 mm
+                                                          ┌─────────────┐
    ┌──────────────────────────────┬───────────────────────┤ Thu 10. Mar ├───────────────────────┬──────────────────────────────┐
    │           Morning            │             Noon      └──────┬──────┘    Evening            │            Night             │
    ├──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┤
@@ -203,7 +209,7 @@ Get запрос
    │  _ - _ - _ -  2 km           │  _ - _ - _ -  2 km           │  _ - _ - _ -  0 km           │  _ - _ - _ -  0 km           │
    │               0.0 mm | 0%    │               0.0 mm | 0%    │               0.0 mm | 0%    │               0.1 mm | 72%   │
    └──────────────────────────────┴──────────────────────────────┴──────────────────────────────┴──────────────────────────────┘
-                                                          ┌─────────────┐                                                       
+                                                          ┌─────────────┐
    ┌──────────────────────────────┬───────────────────────┤ Fri 11. Mar ├───────────────────────┬──────────────────────────────┐
    │           Morning            │             Noon      └──────┬──────┘    Evening            │            Night             │
    ├──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┤
@@ -213,7 +219,7 @@ Get запрос
    │  _ - _ - _ -  0 km           │  _ - _ - _ -  0 km           │      *  *  *  10 km          │  _ - _ - _ -  0 km           │
    │               0.0 mm | 0%    │               0.0 mm | 0%    │     *  *  *   0.0 mm | 0%    │               0.0 mm | 0%    │
    └──────────────────────────────┴──────────────────────────────┴──────────────────────────────┴──────────────────────────────┘
-                                                          ┌─────────────┐                                                       
+                                                          ┌─────────────┐
    ┌──────────────────────────────┬───────────────────────┤ Sat 12. Mar ├───────────────────────┬──────────────────────────────┐
    │           Morning            │             Noon      └──────┬──────┘    Evening            │            Night             │
    ├──────────────────────────────┼──────────────────────────────┼──────────────────────────────┼──────────────────────────────┤
@@ -226,6 +232,9 @@ Get запрос
 
    Check new Feature: wttr.in/Moon or wttr.in/Moon@2016-Mar-23 to see the phase of the Moon
    Follow @igor_chubin for wttr.in updates
+
+qrenco.de
+"""""""""
 
 .. note::
 
@@ -281,9 +290,14 @@ Get запрос
 
 
 POST запрос
-~~~~~~~~~~~
+^^^^^^^^^^^
 
-Пример POST запроса:
+.. note::
+
+    `httpbin <https://httpbin.org/>`_ - сервис для отладки HTTP запросов и
+    ответов
+
+Пример POST запроса к сервису `httpbin <https://httpbin.org/>`_.
 
 .. code-block:: cpp
     :caption: POST запрос на сайт https://httpbin.org/post
@@ -296,27 +310,27 @@ POST запрос
       CURL *curl;
       CURLcode res;
 
-      /* In windows, this will init the winsock stuff */ 
+      /* In windows, this will init the winsock stuff */
       curl_global_init(CURL_GLOBAL_ALL);
 
-      /* get a curl handle */ 
+      /* get a curl handle */
       curl = curl_easy_init();
       if(curl) {
         /* First set the URL that is about to receive our POST. This URL can
            just as well be a https:// URL if that is what should receive the
-           data. */ 
+           data. */
         curl_easy_setopt(curl, CURLOPT_URL, "https://httpbin.org/post");
-        /* Now specify the POST data */ 
+        /* Now specify the POST data */
         curl_easy_setopt(curl, CURLOPT_POSTFIELDS, "name=UrFU&project=lectures.www");
- 
-        /* Perform the request, res will get the return code */ 
+
+        /* Perform the request, res will get the return code */
         res = curl_easy_perform(curl);
-        /* Check for errors */ 
+        /* Check for errors */
         if(res != CURLE_OK)
           fprintf(stderr, "curl_easy_perform() failed: %s\n",
                   curl_easy_strerror(res));
- 
-        /* always cleanup */ 
+
+        /* always cleanup */
         curl_easy_cleanup(curl);
       }
       curl_global_cleanup();
@@ -327,20 +341,20 @@ POST запрос
     :caption: Ответ в формате JSON
 
     {
-      "args": {}, 
-      "data": "", 
-      "files": {}, 
+      "args": {},
+      "data": "",
+      "files": {},
       "form": {
-        "name": "UrFU", 
+        "name": "UrFU",
         "project": "lectures.www"
-      }, 
+      },
       "headers": {
-        "Accept": "*/*", 
-        "Content-Length": "30", 
-        "Content-Type": "application/x-www-form-urlencoded", 
+        "Accept": "*/*",
+        "Content-Length": "30",
+        "Content-Type": "application/x-www-form-urlencoded",
         "Host": "httpbin.org"
-      }, 
-      "json": null, 
+      },
+      "json": null,
       "url": "https://httpbin.org/post"
     }
 
