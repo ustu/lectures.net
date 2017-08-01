@@ -570,8 +570,8 @@ C#
 
 `HttpClient Class
 <https://docs.microsoft.com/en-us/dotnet/api/system.net.http.httpclient>`_
-содержится в поставке ``.NET Core`` для ``Linux``. Создадим проект отправляющий
-HTTP запрос на C#.
+содержится в поставке ``.NET Core`` для ``Linux``. Создадим проект на C#
+отправляющий HTTP запрос.
 
 Первой командой создается проект из шаблона, затем устанавливаются зависимости
 и запускается программа.
@@ -629,7 +629,7 @@ HTTP запрос выполняется асинхронно.
 
 .. code-block:: bash
 
-     $ dotnet run
+    $ dotnet run
     Project net (.NETCoreApp,Version=v1.1) will be compiled because inputs were modified
     Compiling net for .NETCoreApp,Version=v1.1
 
