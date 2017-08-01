@@ -512,3 +512,50 @@ http-tool
     Via: "1.1 vegur" {
       "user-agent": "Mozilla/Gecko/IE 1.2.3"
     }
+
+Haskell
+-------
+
+.. seealso::
+
+    * `Network-HTTP-Simple
+      <https://hackage.haskell.org/package/http-conduit-2.2.3.2/docs/Network-HTTP-Simple.html>`_
+    * https://haskell-lang.org/library/http-client
+    * https://haskell-lang.org/tutorial/stack-script
+
+Программа на ``Haskell`` которая обращается к сервису http://httpbin.org
+методом GET.
+
+.. code-block:: haskell
+    :caption: http.hs
+
+    {-# LANGUAGE OverloadedStrings #-}
+    import qualified Data.ByteString.Lazy.Char8 as L8
+    import           Network.HTTP.Simple
+
+    main :: IO ()
+    main = do
+        response <- httpLBS "http://httpbin.org/get"
+
+        putStrLn $ "The status code was: " ++
+                   show (getResponseStatusCode response)
+        print $ getResponseHeader "Content-Type" response
+        L8.putStrLn $ getResponseBody response
+
+Выполняем при помощи `stack <https://haskellstack.org/>`_.
+
+.. code-block:: bash
+
+    $  stack runghc --package http-conduit -- http.hs
+    The status code was: 200
+    ["application/json"]
+    {
+      "args": {},
+      "headers": {
+        "Accept-Encoding": "gzip",
+        "Connection": "close",
+        "Host": "httpbin.org"
+      },
+      "origin": "82.168.129.111",
+      "url": "http://httpbin.org/get"
+    }
