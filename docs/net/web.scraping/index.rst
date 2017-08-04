@@ -28,12 +28,12 @@
     * CSS
     * XPath
     * JQuery
-    * `FireBug <https://addons.mozilla.org/ru/firefox/addon/firebug/>`_
+    * `FireFox <https://devtools-html.github.io/debugger.html/>`_
 
 .. toctree::
     :maxdepth: 3
 
-    firebug.rst
+    browser.rst
     selenium.rst
     lxml.rst
     asyncio.rst
