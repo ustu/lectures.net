@@ -1,3 +1,16 @@
+.. .. meta::
+..     :property="og:site_name": Лекции - Основы Веб-программирования
+..     :property=og:title: HTTP Запросы/Ответы на разных языках программирования
+..     :property=og:type: article
+..     :property=og:locale: ru_RU
+..     :property=og:description: Примеры HTTP-запросов на C, C++, Qt, Red-lang, C#, Go-lang
+..     :property=og:image: http://lectureskpd.readthedocs.io/_images/http_request.svg
+..     :property=article:tag: HTTP, C, C++, Qt, Red-lang, C#, Go-lang, Request
+
+.. meta::
+    :title: HTTP Запросы/Ответы на разных языках программирования
+    :description: Примеры HTTP-запросов на C, C++, Qt, Red-lang, C#, Go-lang
+
 HTTP Запросы/Ответы на других языках
 ====================================
 
