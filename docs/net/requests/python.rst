@@ -1,5 +1,11 @@
-HTTP Запросы/Ответы на Python
-=============================
+.. meta::
+    :title: HTTP Запросы/Ответы на Python
+    :description: HTTP клиент на Python при помощи библиотек http.client,
+                  urllib, urllib2, requests.
+    :tags: Python, requests, http.client, urllib, urllib2, HTTP
+
+Python
+======
 
 http.client
 -----------

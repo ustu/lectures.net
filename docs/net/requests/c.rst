@@ -11,18 +11,20 @@
     :title: HTTP Запросы/Ответы на разных языках программирования
     :description: Примеры HTTP-запросов на C, C++, Qt, Red-lang, C#, Go-lang
 
-HTTP Запросы/Ответы на других языках
-====================================
+.. meta::
+    :title: HTTP Запросы/Ответы на Си
+    :description: HTTP клиент на Си при помощи библиотеки curl.
+    :tags: C, Си, Curl, HTTP
 
 C curl
-------
+======
 
 .. seealso::
 
     https://curl.haxx.se/docs/manual.html
 
 Установка
-^^^^^^^^^
+---------
 
 Для :l:`nix`:
 
@@ -49,11 +51,11 @@ C curl
 
    $ gcc foo.c -lcurl -o foo
 
-Get запрос
-^^^^^^^^^^
+GET запрос
+----------
 
 example.com
-"""""""""""
+^^^^^^^^^^^
 
 .. seealso::
 
@@ -148,7 +150,7 @@ example.com
     </html>
 
 wttr.in
-"""""""
+^^^^^^^
 
 .. note::
 
@@ -247,7 +249,7 @@ wttr.in
    Follow @igor_chubin for wttr.in updates
 
 qrenco.de
-"""""""""
+^^^^^^^^^
 
 .. note::
 
@@ -303,7 +305,7 @@ qrenco.de
 
 
 POST запрос
-^^^^^^^^^^^
+-----------
 
 .. note::
 
@@ -369,420 +371,4 @@ POST запрос
       },
       "json": null,
       "url": "https://httpbin.org/post"
-    }
-
-
-Go lang
--------
-
-.. hint::
-
-   Для запуска достаточно выполнить:
-
-   .. code-block:: bash
-
-       $ go run http_get.go
-
-Простой ``GET`` запрос с использованием стандартного модуля
-`net/http <https://golang.org/pkg/net/http/>`_:
-
-.. code-block:: go
-    :caption: http_get.go
-
-    package main
-
-    import (
-        "fmt"
-        "io/ioutil"
-        "net/http"
-        "os"
-    )
-
-    func main() {
-        response, err := http.Get("http://golang.org/")
-        if err != nil {
-            fmt.Printf("%s", err)
-            os.Exit(1)
-        } else {
-            defer response.Body.Close()
-            contents, err := ioutil.ReadAll(response.Body)
-            if err != nil {
-                fmt.Printf("%s", err)
-                os.Exit(1)
-            }
-            fmt.Printf("%s\n", string(contents))
-        }
-    }
-
-Red lang
---------
-
-.. seealso::
-
-    * http://www.red-lang.org/
-    * https://github.com/red/red
-    * `<https://ru.wikipedia.org/wiki/Red_(язык_программирования)>`_
-
-``Red`` удивительный язык программирования, помимо своей функциональной
-природы, он способен охватить полный стек разработки от высокоуровневых
-программ с GUI-интерфейсом до низкоуровневого программирования операционных
-систем и драйверов.
-
-read
-^^^^
-
-Создать GET запрос на ``Red`` очень просто, достаточно вызвать встроенную
-функцию ``read``.
-
-.. code-block:: bash
-
-    $ ./red-063
-    --== Red 0.6.3 ==--
-    Type HELP for starting information.
-
-    >> help read
-    USAGE:
-         READ source
-
-    DESCRIPTION:
-         Reads from a file, URL, or other port.
-         READ is an action! value.
-
-    ARGUMENTS:
-         source       [file! url!]
-
-    REFINEMENTS:
-         /part        => Partial read a given number of units (source relative).
-            length       [number!]
-         /seek        => Read from a specific position (source relative).
-            index        [number!]
-         /binary      => Preserves contents exactly.
-         /lines       => Convert to block of strings.
-         /info        =>
-         /as          => Read with the specified encoding, default is 'UTF-8.
-            encoding     [word!]
-
-    >>
-
-Примеры запросов к сервису http://httpbin.org
-
-.. code-block:: bash
-
-    $ ./red-063
-    --== Red 0.6.3 ==--
-    Type HELP for starting information.
-
-    >> print read http://httpbin.org/ip
-    {
-      "origin": "82.168.221.111"
-    }
-
-    >> print read http://httpbin.org/user-agent
-    {
-      "user-agent": null
-    }
-
-    >>
-
-http-tool
-^^^^^^^^^
-
-.. note::
-
-    `http-tools
-    <https://github.com/rebolek/red-tools/blob/master/http-tools.red>`_ -
-    модуль для отправки HTTP запросов
-
-Для более сложных запросов можно воспользоваться модулем `http-tools
-<https://github.com/rebolek/red-tools/blob/master/http-tools.red>`_.
-
-.. code-block:: red
-    :caption: requests.red
-
-    Red []
-
-    #include %red-tools/http-tools.red
-    print send-request/raw/with
-      http://httpbin.org/user-agent
-      'GET [User-Agent: "Mozilla/Gecko/IE 1.2.3"]
-
-В результате получим заголовок ``User-Agent`` который мы указали в запросе.
-
-.. code-block:: bash
-    :caption: ./red-063 requests.red
-
-    $ ./red-063 requests.red
-
-    200 Connection: "keep-alive"
-    Server: "meinheld/0.6.1"
-    Date: "Tue, 01 Aug 2017 07:27:47 GMT"
-    Content-Type: "application/json"
-    Access-Control-Allow-Origin: "*"
-    Access-Control-Allow-Credentials: "true"
-    X-Powered-By: "Flask"
-    X-Processed-Time: "0.000529050827026"
-    Content-Length: "45"
-    Via: "1.1 vegur" {
-      "user-agent": "Mozilla/Gecko/IE 1.2.3"
-    }
-
-Haskell
--------
-
-.. seealso::
-
-    * `Network-HTTP-Simple
-      <https://hackage.haskell.org/package/http-conduit-2.2.3.2/docs/Network-HTTP-Simple.html>`_
-    * https://haskell-lang.org/library/http-client
-    * https://haskell-lang.org/tutorial/stack-script
-
-Программа на ``Haskell`` которая обращается к сервису http://httpbin.org
-методом GET.
-
-.. code-block:: haskell
-    :caption: http.hs
-
-    {-# LANGUAGE OverloadedStrings #-}
-    import qualified Data.ByteString.Lazy.Char8 as L8
-    import           Network.HTTP.Simple
-
-    main :: IO ()
-    main = do
-        response <- httpLBS "http://httpbin.org/get"
-
-        putStrLn $ "The status code was: " ++
-                   show (getResponseStatusCode response)
-        print $ getResponseHeader "Content-Type" response
-        L8.putStrLn $ getResponseBody response
-
-Выполняем при помощи `stack <https://haskellstack.org/>`_.
-
-.. code-block:: bash
-
-    $  stack runghc --package http-conduit -- http.hs
-    The status code was: 200
-    ["application/json"]
-    {
-      "args": {},
-      "headers": {
-        "Accept-Encoding": "gzip",
-        "Connection": "close",
-        "Host": "httpbin.org"
-      },
-      "origin": "82.168.129.111",
-      "url": "http://httpbin.org/get"
-    }
-
-C#
---
-
-.. seealso::
-
-    * https://www.microsoft.com/net/download/linux
-    * `HttpClient Class <https://docs.microsoft.com/en-us/dotnet/api/system.net.http.httpclient>`_
-
-`HttpClient Class
-<https://docs.microsoft.com/en-us/dotnet/api/system.net.http.httpclient>`_
-содержится в поставке ``.NET Core`` для ``Linux``. Создадим проект на C#
-отправляющий HTTP запрос.
-
-Первой командой создается проект из шаблона, затем устанавливаются зависимости
-и запускается программа.
-
-.. code-block:: bash
-
-    $ dotnet new Console
-    $ dotnet restore
-    $ dotnet run
-
-HTTP запрос выполняется асинхронно.
-
-.. code-block:: csharp
-    :caption: Program.cs
-
-    using System;
-    using System.Net.Http;
-    using System.Net.Http.Headers;
-    using System.Threading.Tasks;
-
-    namespace ConsoleApplication
-    {
-        public class Program
-        {
-            public static void Main(string[] args)
-            {
-                MainAsync().Wait();
-            }
-
-            static async Task MainAsync()
-            {
-              var client = new HttpClient();
-              client.DefaultRequestHeaders.Accept.Clear();
-              client.DefaultRequestHeaders.Accept.Add(
-                  new MediaTypeWithQualityHeaderValue(
-                    "application/vnd.github.v3+json"
-                  )
-              );
-              client.DefaultRequestHeaders.Add(
-                "User-Agent",
-                ".NET Foundation Repository Reporter"
-              );
-
-              var stringTask = client.GetStringAsync(
-                "https://api.github.com/orgs/ustu/repos"
-              );
-
-              var msg = await stringTask;
-              Console.Write(msg);
-            }
-        }
-    }
-
-Результат выполнения программы.
-
-.. code-block:: bash
-
-    $ dotnet run
-    Project net (.NETCoreApp,Version=v1.1) will be compiled because inputs were modified
-    Compiling net for .NETCoreApp,Version=v1.1
-
-    Compilation succeeded.
-        0 Warning(s)
-        0 Error(s)
-
-    Time elapsed 00:00:01.0363043
-
-    [{"id":25028386,"name":"urfu_sphinx_theme","full_name":"ustu/urfu_sphinx_theme","owner":{"log
-    in":"ustu","id":9111291,"avatar_url":"https://avatars0.githubusercontent.com/u/9111291?v=4","
-    gravatar_id":"","url":"https://api.github.com/users/ustu","html_url":"https://github.com/ustu
-    ","followers_url":"https://api.github.com/users/ustu/followers","following_url":"https://api.
-    github.com/users/ustu/following{/other_user}","gists_url":"https://api.github.com/users/ustu/
-    gists{/gist_id}","starred_url":"https://api.github.com/users/ustu/starred{/owner}{/repo}","su
-    bscriptions_url":"https://api.github.com/users/ustu/subscriptions","organizations_url":"https
-    ://api.github.com/users/ustu/orgs","repos_url":"https://api.github.com/users/ustu/repos","eve
-    nts_url":"https://api.github.com/users/ustu/events{/privacy}","received_events_url":"https://
-    api.github.com/users/ustu/received_events","type":"Organization","site_admin":false},"private
-    ":false,"html_url":"https://github.com/ustu/urfu_sphinx_theme","description":null,"fork":fals
-    e,"url":"https://api.github.com/repos/ustu/urfu_sphinx_theme","forks_url":"https://api.github
-    .com/repos/ustu/urfu_sphinx_theme/forks","keys_url":"https://api.github.com/repos/ustu/urfu_s
-    phinx_theme/keys{/key_id}","collaborators_url":"https://api.github.com/repos/ustu/urfu_sphinx
-    _theme/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/ustu/urfu_sphi
-
-C++/Qt
-------
-
-.. seealso::
-
-   http://doc.qt.io/qt-5/qtnetwork-index.html
-
-`Qt <https:/qt.io/>`_ невероятно мощный фреймворк, который делает разработку на
-C++ простой и удобной. Модуль `QtNetwork
-<http://doc.qt.io/qt-5/qtnetwork-index.html>`_ позволяет выполнять различные
-сетевые операции, в том числе и HTTP запросы.
-
-.. code-block:: cpp
-    :caption: main.cpp
-
-    // Qt loop app
-    #include <QtCore/QDebug>
-    #include <QtCore/QJsonDocument>
-    #include <QtCore/QCoreApplication>
-
-    // Network
-    #include <QtNetwork/QNetworkReply>
-    #include <QtNetwork/QNetworkRequest>
-    #include <QtNetwork/QNetworkAccessManager>
-
-    int main(int argc, char *argv[])
-    {
-        QCoreApplication a(argc, argv);
-
-        auto manager = new QNetworkAccessManager();
-        QObject::connect(
-                    manager,
-                    &QNetworkAccessManager::finished,
-                    // Лямбда функция - обработчик HTTP ответа
-                    [=](QNetworkReply *reply) {
-
-            // Обработка ошибок
-            if (reply->error()) {
-                qDebug() << QString("Error %1").arg(reply->errorString());
-                exit(1);
-            }
-
-            // Вывод заголовков
-            for (auto &i:reply->rawHeaderPairs()) {
-                QString str;
-                qDebug() << str.sprintf(
-                                "%40s: %s",
-                                i.first.data(),
-                                i.second.data());
-            }
-
-            // Вывод стандартного заголовка
-            qDebug() << reply->header(QNetworkRequest::ContentTypeHeader).toString();
-
-            // Тело ответа в формате JSON
-            QByteArray responseData = reply->readAll();
-            qDebug() << QJsonDocument::fromJson(responseData);
-
-            // Delete garbage && Exit
-            reply->deleteLater();
-            manager->deleteLater();
-            exit(0);
-        });
-
-        manager->get(QNetworkRequest(QUrl("http://httpbin.org/get")));
-
-        return a.exec();
-    }
-
-Программа в цикле обработки событий дожидается HTTP ответ и передает управление
-в лямбда функцию.
-
-Результат выполнения.
-
-.. code-block:: text
-
-    "                              Connection: keep-alive"
-    "                                  Server: meinheld/0.6.1"
-    "                                    Date: Fri, 04 Aug 2017 09:33:08 GMT"
-    "                            Content-Type: application/json"
-    "             Access-Control-Allow-Origin: *"
-    "        Access-Control-Allow-Credentials: true"
-    "                            X-Powered-By: Flask"
-    "                        X-Processed-Time: 0.000859022140503"
-    "                          Content-Length: 269"
-    "                                     Via: 1.1 vegur"
-    QVariant(QString, "application/json")
-    QJsonDocument({"args":{},"headers":{"Accept-Encoding":"gzip, deflate","Accept-Language":"en-US,*","Connection":"close","Host":"httpbin.org","User-Agent":"Mozilla/5.0"},"origin":"89.111.232.62","url":"http://httpbin.org/get"})
-
-.. seealso::
-
-    http://doc.qt.io/qbs/
-
-Для сборки проекта можно использовать систему сборки `Qbs
-<http://doc.qt.io/qbs/>`_.
-
-.. code-block:: qbs
-    :caption: qt-request.qbs
-
-    import qbs
-
-    Project {
-        minimumQbsVersion: "1.7.1"
-
-        CppApplication {
-            Depends { name: "Qt.core" }
-            Depends { name: "Qt.network" }
-
-            cpp.cxxLanguageVersion: "c++11"
-
-            files: "main.cpp"
-
-            Group {     // Properties for the produced executable
-                fileTagsFilter: product.type
-                qbs.install: true
-            }
-        }
     }

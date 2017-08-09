@@ -28,8 +28,7 @@
 
     net/intro.rst
     net/sniff.rst
-    net/requests.rst
-    net/requests-other.rst
+    net/requests/index.rst
     net/web.scraping/index.rst
     net/low-level/index.rst
     net/_checkpoint.rst
