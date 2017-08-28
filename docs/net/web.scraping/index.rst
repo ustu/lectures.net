@@ -37,6 +37,7 @@
     selenium.rst
     lxml.rst
     asyncio.rst
+    red.rst
     qt.rst
 
 .. todo::
