@@ -17,7 +17,8 @@ Red lang
 
 .. seealso::
 
-    https://gist.github.com/maximvl/c6335b52ac3a4ee1d780afbf3da636c4
+    * https://gist.github.com/maximvl/c6335b52ac3a4ee1d780afbf3da636c4
+    * http://www.red-lang.org/2013/11/041-introducing-parse.html
 
 .. code-block:: red
 
