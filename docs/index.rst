@@ -19,10 +19,6 @@
 Содержание
 ----------
 
-.. seealso::
-
-   * https://docs.python.org/3/library/internet.html
-
 .. toctree::
     :maxdepth: 3
 
@@ -43,6 +39,10 @@
 
 Справочник
 ----------
+
+.. seealso::
+
+   * https://docs.python.org/3/library/internet.html
 
 .. toctree::
     :maxdepth: 1
