@@ -31,6 +31,14 @@
     net/requests/index.rst
     net/web.scraping/index.rst
     net/low-level/index.rst
+
+Закрепление материала
+---------------------
+
+.. toctree::
+    :maxdepth: 1
+
+    net/_checkpoint0.rst
     net/_checkpoint.rst
 
 Справочник
