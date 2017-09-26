@@ -27,3 +27,4 @@ HTTP Запросы/Ответы на разных языках
     red.rst
     haskell.rst
     csharp.rst
+    ruby.rst
