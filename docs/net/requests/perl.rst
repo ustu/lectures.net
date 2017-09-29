@@ -46,7 +46,7 @@ Perl
     print while <$sock>;
 
     # Close socket
-    close($sock);
+    close $sock;
 
 Ответ на наш запрос:
 
