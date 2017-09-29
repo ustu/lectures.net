@@ -34,7 +34,7 @@ Common Lisp
 Простой ``GET`` запрос с использованием модуля `usocket
 <https://github.com/usocket/usocket>`_:
 
-.. code-block:: clisp
+.. code-block:: lisp
     :caption: http_get.lisp
 
     (load "~/quicklisp/setup.lisp")
