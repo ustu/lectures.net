@@ -29,3 +29,4 @@ HTTP Запросы/Ответы на разных языках
     csharp.rst
     ruby.rst
     php.rst
+    lisp.rst
