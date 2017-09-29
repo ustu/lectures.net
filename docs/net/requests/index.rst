@@ -28,3 +28,4 @@ HTTP Запросы/Ответы на разных языках
     haskell.rst
     csharp.rst
     ruby.rst
+    php.rst
