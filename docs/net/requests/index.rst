@@ -33,3 +33,4 @@ HTTP Запросы/Ответы на разных языках
     perl.rst
     bash.rst
     rust.rst
+    java.rst
