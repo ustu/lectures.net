@@ -32,3 +32,4 @@ HTTP Запросы/Ответы на разных языках
     lisp.rst
     perl.rst
     bash.rst
+    rust.rst
