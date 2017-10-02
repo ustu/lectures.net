@@ -31,3 +31,4 @@ HTTP Запросы/Ответы на разных языках
     php.rst
     lisp.rst
     perl.rst
+    bash.rst

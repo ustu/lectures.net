@@ -22,7 +22,15 @@ edit_on_github_project = 'ustu/lectures.net'
 edit_on_github_branch = 'master'
 
 latex_documents = [
-    ('index', 'lectures.tex',
-     project,
-     u'Свинцов Дмитрий', 'manual'),
+    (
+        'index',
+        'lectures.tex',
+        project,
+        u'Свинцов Дмитрий',
+        'manual'
+    ),
+]
+
+exclude_patterns += [  # noqa
+    'net/requests.rst',
 ]
