@@ -24,7 +24,15 @@
 
     net/intro.rst
     net/sniff.rst
+
+.. toctree::
+    :maxdepth: 2
+
     net/requests/index.rst
+
+.. toctree::
+    :maxdepth: 3
+
     net/web.scraping/index.rst
     net/low-level/index.rst
 

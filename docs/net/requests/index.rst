@@ -34,3 +34,4 @@ HTTP Запросы/Ответы на разных языках
     bash.rst
     rust.rst
     java.rst
+    others/index.rst
