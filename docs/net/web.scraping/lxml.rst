@@ -26,13 +26,14 @@ lxml.html
    print(parsed_body.xpath('//title/text()')[0])  # Получить title страницы
    print(parsed_body.xpath('//a/@href'))          # Получить аттрибут href для всех ссылок
 
+Пример извлекает название `HTML` страницы и все ссылки найденные в этом
+документе.
+
 .. code-block:: bash
 
     Яндекс
     ['https://mail.yandex.ru', '//www.yandex.ru']
 
-Пример извлекает название `HTML` страницы и все ссылки найденные в этом
-документе.
 
 Скачиваем все изображения со страницы
 -------------------------------------
@@ -65,7 +66,7 @@ lxml.html
         urljoin(response.url, url)
         for url in images
     ]
-    print('Found %s images' % len(images))
+    print('Found {} images'.format(len(images)))
 
     # Скачиваем только первые 10
     for url in images[0:10]:
@@ -76,6 +77,8 @@ lxml.html
             )
         )
         target.write_bytes(r.content)
+
+После выполнения скрипта в каталоге окажутся скачанные изображения.
 
 .. figure:: /_static/4.net/imgur.png
    :align: center
