@@ -83,3 +83,70 @@ lxml.html
 .. figure:: /_static/4.net/imgur.png
    :align: center
    :width: 500pt
+
+CSS selector
+------------
+
+.. seealso::
+
+    https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Селекторы
+
+
+.. code-block:: python
+
+    # standard library
+    from io import StringIO
+
+    # third-party
+    import requests
+    from lxml import html
+
+    r = requests.get('http://ru.arf.ru/')
+
+    print(r.encoding)  # Кодировка по умолчанию ISO-8859-1
+    r.encoding = 'cp1251' # Указываем настоящюю кодировку документа
+
+    # Формируем дерево элементов
+    root = html.parse(
+        StringIO(r.text)
+    ).getroot()
+
+    # Выбираем ссылки внутри тегов <td> выровненных по центру
+    links = root.cssselect('td[align=CENTER] > a')
+
+    for item in links:
+        print(
+            item.get('href')  # печатаем значение атрибута href
+        )
+
+    print()
+
+    # Выбираем все изображения
+    images = root.cssselect('img')
+    for item in images:
+        print(
+            item.get('src'),  # печатаем значение атрибута src
+            html.tostring(item)  # и сам элемент
+        )
+
+Результат выполнения:
+
+.. code-block:: bash
+
+    $ python parse.py
+    ISO-8859-1
+    /
+    /Ludi/index.html
+    /Hrono/index.html
+    /Svid/index.html
+    /Links/index.html
+    mailto:sova@arf.ru
+    /Ludi/index.html
+    /Hrono/index.html
+    /Svid/index.html
+    /Links/index.html
+    mailto:sova@arf.ru
+
+    /Pict/ru.png b'<img src="/Pict/ru.png" height="80" width="120" alt="RU History Logo" border="0">'
+    /Pict/line.png b'<img src="/Pict/line.png" height="3" width="550" alt="divider">\r\n          '
+    /Pict/line.png b'<img src="/Pict/line.png" height="3" width="550" alt="divider">\r\n          '
