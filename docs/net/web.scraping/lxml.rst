@@ -252,7 +252,7 @@ CSS selector
 
 .. seealso::
 
-    http://lxml.de/api/lxml.html.clean.Cleaner-class.html#_tag_link_attrs
+    http://lxml.de/api/lxml.html.clean.Cleaner-class.html
 
 Для комплексной фильтрации есть мощный класс ``Cleaner``, который позволяет
 задать настройки фильтра и многократно применять их к разным элементам.
