@@ -19,8 +19,8 @@ if os.path.exists(SOCKET_FILE):
     client = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
     client.connect(SOCKET_FILE)
     print("Выполнено.")
-    print("Ctrl-C что бы выйти.")
-    print("Отправьте 'DONE' что бы выключить сервер.")
+    print("Ctrl-C чтобы выйти.")
+    print("Отправьте 'DONE' чтобы выключить сервер.")
     while True:
         try:
             x = input("> ")  # for py2 use raw_input
