@@ -1,10 +1,10 @@
 .. meta::
     :title: HTTP Запросы/Ответы на Java
     :description: HTTP клиент на Java
-    :tags: Java, socket, HTTP
+    :tags: Java, Scala, socket, HTTP
 
-Java
-====
+Java/Scala
+==========
 
 .. hint::
 
