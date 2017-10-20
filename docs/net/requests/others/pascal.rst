@@ -3,8 +3,8 @@
     :description: HTTP клиент на Pascal
     :tags: Pascal, socket, HTTP
 
-Pascal
-======
+Pascal/Delphi
+=============
 
 Простой ``GET`` запрос:
 
