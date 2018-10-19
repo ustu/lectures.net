@@ -1,0 +1,10 @@
+python:
+  version: 3
+
+# Pip requirements
+requirements_file: null
+
+# Submodules
+submodules:
+  include: all
+  recursive: true

@@ -14,7 +14,7 @@
 
 .. image:: /_static/logo.jpg
 
-.. include:: /../_lectures/docs/lect_links.rst
+.. .. include:: /../_lectures/docs/lect_links.rst
 
 Содержание
 ----------
