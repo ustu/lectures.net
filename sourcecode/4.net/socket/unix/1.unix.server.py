@@ -18,7 +18,7 @@ while True:
     else:
         print("-" * 20)
     print(datagram)
-    if "DONE" == datagram:
+    if b"DONE" == datagram:
         break
 print("-" * 20)
 print("Выключение...")
